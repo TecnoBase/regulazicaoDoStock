@@ -12,9 +12,9 @@
 typedef struct {
     char nome[MAX_NOME];
     int estoque;
-    char estado[MAX_ESTADO]; // "verde" ou "madura"
-    char conservacao[MAX_CONSERVACAO]; // "bom" ou "ótimo"
-    char estacao[MAX_ESTACAO]; // estação de colheita (por exemplo, "verão", "inverno")
+    char estado[MAX_ESTADO]; 
+    char conservacao[MAX_CONSERVACAO];
+    char estacao[MAX_ESTACAO]; 
 } Fruta;
 
 typedef struct {
@@ -28,12 +28,13 @@ typedef struct {
     int quantidades[NUM_FRUTAS];
 } EncomendaArgs;
 
-int supermercadosBanidos[NUM_SUPERMERCADOS] = {0}; // Array para rastrear supermercados banidos
+// Array para rastrear supermercados banidos
+int supermercadosBanidos[NUM_SUPERMERCADOS] = {0}; 
 
 void inicializaSupermercados(Supermercado supermercados[NUM_SUPERMERCADOS]) {
     for (int i = 0; i < NUM_SUPERMERCADOS; i++) {
         sprintf(supermercados[i].nome, "Supermercado %d", i + 1);
-        supermercados[i].num_frutas = 0; // Inicialmente, nenhum produto é inserido
+        supermercados[i].num_frutas = 0; 
     }
 }
 
@@ -100,7 +101,7 @@ void insereProduto(Supermercado supermercados[NUM_SUPERMERCADOS]) {
     scanf("%s", nova_fruta.estado);
     printf("Digite o modo de conservação da fruta (bom ou ótimo): ");
     scanf("%s", nova_fruta.conservacao);
-    printf("Digite a estação de colheita da fruta (verão ou inverno): ");
+    printf("Digite a estação de colheita da fruta (verão ou cachimbo): ");
     scanf("%s", nova_fruta.estacao);
 
     supermercados[supermercado].frutas[supermercados[supermercado].num_frutas] = nova_fruta;
@@ -236,7 +237,7 @@ int main() {
                 break;
             case 3: {
                 char estacao[MAX_ESTACAO];
-                printf("Digite a estação de colheita para exibir o estoque (verão ou inverno): ");
+                printf("Digite a estação de colheita para exibir o estoque (verão ou cachimbo): ");
                 scanf("%s", estacao);
                 exibirEstoquePorEstacao(supermercados, estacao);
                 break;
